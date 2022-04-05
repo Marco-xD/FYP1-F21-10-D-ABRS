@@ -1,4 +1,30 @@
 
+--This is the SDM LAYER also known as presentation layer and it will be connected to power BI for making reports and dashboards
+--The input of this layer is RDM and output will be used in power BI
+-- Facts and dimension tables will be made star/snowflake schema
+--Total 10 dimensions and 4 fact tables  so total 14 tables in this layer
+--TABLES
+--1) Vendor_DIM
+--2) Country_Region_DIM
+--3) Payment_DIM
+--4) Person_DIM
+--5) Product_Cat_DIM
+--6) Product_DIM
+--7) Product_Purchase_Fact_Monthly
+--8) Product_Sales_Fact_Monthly
+--9) Product_Sub_Cat_DIM
+--10) Purchase_Fact_Monthly
+--11) Sales_Fact_Monthly
+--12) Sales_Type_DIM
+--13) Ship_Type_DIM
+--14) Territory_DIM
+
+
+
+
+
+
+
 CREATE DATABASE Dp_SDM;
 
 
