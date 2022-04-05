@@ -1,0 +1,27 @@
+
+#1) Create Tables in hive that are required to store the data and specify delimeter
+
+#2) Move the csv files from windows to vmware Red hat 7
+
+#3) Then check the path of the table from this command given below
+
+show create table test_database.test1_table;
+
+#Copy path after port such as:/user/hive/warehouse/test_database.db/test1_table
+
+#4) Then run this command on terminal to load the data into the table 
+ hdfs dfs -put /hdfs/Test.csv /user/hive/warehouse/test_database.db/test1_table
+
+#5) Then refresh the table by using the command such as:
+refresh test_database.test1_table;
+
+#6) DATA IS LOADED INTO THE TABLE SUCESSFULLY
+
+
+
+
+#RUN THIS COMMAND IF ASKING AUTHENTICATION FOR USER
+FOR EXAMPLE:
+sudo -u hdfs hadoop fs -mkdir /user/cloudera/AW_DP_STG1
+
+ 

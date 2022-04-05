@@ -1,0 +1,327 @@
+    1  sudo vi /etc/hosts
+    2  sudo hostnamectl set-hostname <masternode1>
+    3  sudo hostnamectl set-hostname masternode1
+    4  uname -a
+    5  sudo vi /etc/hosts
+    6  cd
+    7  uname -a
+    8  reboot
+    9  sudo service iptables stop
+   10  sudo service iptables status
+   11  sudo systemctl status firewalld
+   12  sudo systemctl disable firewalld
+   13  sudo systemctl stop firewalld
+   14  sudo systemctl status firewalld
+   15  getenforce
+   16  setenforce 0
+   17  getenforce
+   18  sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
+   19  getenforce
+   20  cd /etc/selinux
+   21  ls -ltrh
+   22  vi config
+   23  getenforce
+   24  sudo yum install -y ntp
+   25  yum repolist
+   26  cd
+   27  getenforce
+   28  ssh-keygen
+   29  ls -al ~/.ssh/
+   30  ssh-copy-id -i ~/.ssh/id_rsa.pub
+   31  ssh-copy-id -i ~/.ssh/id_rsa.pub root@masternode1
+   32  clear
+   33  mkdir -p /mnt/disc
+   34  mount /dev/sr0 /mnt/disc
+   35  mount /dev/srO /mnt/disc
+   36  mount /dev/sr0 /mnt/disc
+   37  mount /dev/sr0  /mnt/disc
+   38  cat /etc/redhat-release
+   39  date
+   40  df -hTP
+   41  lsscsi
+   42  yum install lsscsi
+   43  lsscsi
+   44  yum repolist
+   45  mount /dev/sr0 /mnt/disc
+   46  mkdir -p /hdfs/disc
+   47  mount /dev/sr0 /hdfs/disc
+   48  mount /dev/sr0 /mnt/disc
+   49  which lsblk
+   50  /usr/bin/lsblk
+   51  mount /dev/sr0 /mnt/disc
+   52  cp /mnt/disc/media.repo /etc/yum.repos.d/rhel7dvd.repo
+   53  chmod 644 /etc/yum.repos.d/rhel7dvd.repo
+   54  yum clean all
+   55  yum repolist
+   56  yum -y update
+   57  clear
+   58  sudo yum install -y ntp
+   59  sudo systemctl enable ntpd
+   60  sudo systemctl start ntpd
+   61  sudo systemctl status ntpd
+   62  cat /proc/sys/vm/swappiness
+   63  echo "vm.swappiness = 1" >> /etc/sysctl.conf
+   64  cat /proc/sys/vm/swappiness
+   65  reboot
+   66  cat /proc/sys/vm/swappiness
+   67  echo "never" > /sys/kernel/mm/transparent_hugepage/defrag
+   68  echo "never" > /sys/kernel/mm/transparent_hugepage/enabled
+   69  yum -y install httpd
+   70  chkconfig httpd on
+   71  service httpd restart
+   72  service httpd status
+   73  sudo mkdir -p /var/www/html/cloudera-repos
+   74  yum clean all
+   75  yum makecache
+   76  yum list all | grep cloudera
+   77  sudo yum install java-1.8.0-openjdk-devel
+   78  sudo yum install cloudera-manager-daemons
+   79  sudo yum install cloudera-manager-agent
+   80  sudo yum install cloudera-manager-server
+   81  sudo yum install cloudera-manager-server-db-2
+   82  systemctl cloudera-manager-service status
+   83  sudo systemctl cloudera-manager-service status
+   84  systemctl status cloudera-scm-agent
+   85  python --version
+   86  sudo yum install python275
+   87  source /opt/rh/python27/enable
+   88  python --version
+   89  sudo yum install oracle-j2sdk1.8
+   90  clear
+   91  wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+   92  sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
+   93  sudo yum update
+   94  sudo yum install mysql-server
+   95  sudo systemctl enable mysqld
+   96  sudo systemctl start mysqld
+   97  sudo /usr/bin/mysql_secure_installation
+   98  wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+   99  tar zxvf mysql-connector-java-5.1.46.tar.gz
+  100  cd mysql-connector-java-5.1.46
+  101  sudo cp mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar
+  102  clear
+  103  CREATE DATABASE amon DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+  104  clear
+  105  cd
+  106  mysql -u root -p
+  107  sudo /opt/cloudera/cm/schema/scm_prepare_database.sh mysql scm scm
+  108  sudo systemctl start cloudera-scm-server
+  109  sudo tail -f /var/log/cloudera-scm-server/cloudera-scm-server.log
+  110  chkconfig cloudera-scm-server on
+  111  systemctl enable cloudera-scm-agent
+  112  systemctl start cloudera-scm-agent
+  113  systemctl status cloudera-scm-agent
+  114  systemctl status cloudera-scm-server
+  115  systemctl status cloudera-scm-daemons
+  116  systemctl status cloudera-manager-server
+  117  systemctl status cloudera-manager-daemons
+  118  systemctl status cloudera-scm-daemons
+  119  systemctl status cloudera-scm-server
+  120  systemctl status cloudera-scm-agent
+  121  service httpd status
+  122  service ntpd status
+  123  sudo systemctl status firewalld
+  124  df -h
+  125  hadoop fs -setrep -R -w 1
+  126  hadoop fs -setrep -R -w 1 /
+  127  sudo hadoop fs -setrep -R -w 1 /
+  128  hadoop fs -ls /
+  129  sudo su - hdfs
+  130  sudo su  hdfs
+  131  su  -hdfs
+  132  su - hdfs
+  133  sudo -u hdfs
+  134  hadoop fs -chmod 755 /
+  135  hadoop fs -ls /
+  136  sudo hadoop fs -setrep -R -w 1 /
+  137  hdfs fsck / -delete
+  138  sudo hadoop fs -setrep -R -w 1 /
+  139  sudo -u hadoop fs -setrep -R -w 1 /
+  140  sudo -u hdfs fs -setrep -R -w 1 /
+  141  sudo -u hadoop fs -setrep -R -w 1 /
+  142   hadoop dfs -setrep -R -w 1 /
+  143  hdfoop fs -ls /
+  144  hadoop fs -ls /
+  145  hdfs hadoop dfs -setrep -R -w 1 /
+  146  hdfs dfs -setrep -R -w 1 /
+  147  sudo -u hdfs hdfs fs -setrep -R -w 1 /
+  148  sudo -u hdfs hadoop -setrep -R -w 1 /
+  149  sudo -u hdfs hadoop fs -setrep -R -w 1 /
+  150  sudo -u hdfs hadoop fsck / -delete
+  151  cat /proc/sys/vm/swappiness
+  152  systemctl enable rpcbind
+  153  systemctl start rpcbind
+  154  systemctl satus rpcbind
+  155  systemctl status rpcbind
+  156  touch /var/log/hadoop-hdfs/hadoop-cmf-hdfs-NFSGATEWAY-masternode1.log.out
+  157  hdfoop fs -ls /user/hive/warehouse
+  158  hadoop fs -ls /user/hive/warehouse
+  159  hadoop fs -ls /user/hive/warehouse/test_database.db/
+  160  hadoop fs -ls /user/hive/warehouse/test_database.db/test_table
+  161  top
+  162  df -h
+  163  cat /etc/fstab
+  164  swapoff /dev/mapper/rhel-swa
+  165  swapoff /dev/mapper/rhel-swap
+  166  lsblk
+  167  swapoff /dev/mapper/centos-swap
+  168  swapoff /dev/mapper/rhel-swap
+  169  swapoff -a
+  170  vi /etc/fstab
+  171  mount -a
+  172  top
+  173  swapoff -a
+  174  free -m
+  175  sync; echo 3 > /proc/sys/vm/drop_caches
+  176  top
+  177  swapoff -a
+  178  cat /etc/sysconfig/kernel
+  179  ls -ltrh /etc/sysconfig/
+  180  restart
+  181  reboot
+  182  top
+  183  service cloudera-scm-server status
+  184  service cloudera-scm-agent status
+  185  service firewalld status
+  186  getenforce
+  187  cd /var/log/cloudera-scm-server/
+  188  tail -200f cloudera-scm-server.log
+  189  cd ..
+  190  cd cloudera-scm-agent/
+  191  tail -200f cloudera-scm-agent.log
+  192  service  cloudera-scm-agent restart
+  193  tail -200f cloudera-scm-agent.log
+  194  telnet localhost 7182
+  195  yum install telnet
+  196  telnet localhost 7182
+  197  service cloudera-scm-server status
+  198  service supervisord status
+  199  service cloudera-scm-agent status
+  200  top
+  201  cd ..
+  202  cd cloudera-scm-server/
+  203  tail -220f cloudera-scm-server.log
+  204  service cloudera-scm-server restart
+  205  tail -220f cloudera-scm-server.log
+  206   cat /etc/hosts
+  207  tail -220f cloudera-scm-server.log
+  208  telnet localhost 7180
+  209  hostname
+  210  hostname -i
+  211  telnet 192.168.88.130 7180
+  212  tail -220f cloudera-scm-server.log
+  213  top
+  214  cd /var/log/cloudera-scm-server/
+  215  tail -200f cloudera-scm-server.log
+  216  cd ..
+  217  cd cloudera-scm-agent/
+  218  tail -200f cloudera-scm-agent.log
+  219  sudo -u hdfs hdfs dfs -ls
+  220  sudo -u hdfs hdfs dfs -ls /
+  221  sudo -u hdfs hdfs dfsadmin -safemode get
+  222  sudo -u hdfs hdfs dfs -ls /user/history/done
+  223  sudo -u hdfs hdfs dfs -ls /user/history
+  224  history
+  225  history
+  226  tail -200f cloudera-scm-server.log
+  227  tail -200f cloudera-scm-agent.log
+  228  jps
+  229  sudo jps
+  230  clear
+  231  hadoop fs -ls /
+  232  hadoop fs -ls /user/cloudera/
+  233  hadoop fs -mkdir /user/cloudera/test
+  234  hadoop fs -ls /user
+  235  ls
+  236  hadoop fs -mkdir /user/cloudera
+  237  sudo hadoop fs -mkdir /user/cloudera
+  238  clear
+  239  history
+  240  sudo -u hadoop fs -mkdir /user/clouder
+  241  sudo -u fs -mkdir /user/clouder
+  242  clear
+  243  hadoop fs -ls /user
+  244  sudo hadoop fs -mkdir /user/cloudera
+  245  sudo -u hdfs hadoop fs -mkdir /user/cloudera
+  246  hadoop fs -ls /user
+  247  cd /hdfs
+  248  sudo -u hdfs hadoop fs -mkdir /user/cloudera/test
+  249  hadoop fs -ls /user/cloudera/
+  250  fs -ls
+  251  -ls
+  252  ls
+  253  hadoop fs -put Test.csv /user/cloudera/test
+  254  sudo -u hdfs hadoop fs -put Test.csv /user/cloudera/test
+  255  hadoop fs -ls /user/cloudera/test
+  256  hadoop fs -ls /user/cloudera/test/Test.csv
+  257  hadoop fs -cat /user/cloudera/test/Test.csv
+  258  hadoop fs -ls /public
+  259  hdfs dfs -put /hdfs/Test.csv /user/hive/warehouse/test_database.db/test1_table
+  260  history
+  261  history
+  262  sudo -u hdfs hadoop fs -mkdir /user/cloudera/test
+  263  sudo -u hdfs hadoop fs -mkdir /user/cloudera/AW_DP_STG1
+  264  cd /hdfs/AW_DS_DP_STG1
+  265  sudo -u hdfs hadoop fs -put HR.CSV /user/cloudera/AW_DP_STG1
+  266  hadoop fs -ls /user/cloudera/[root@masternode1 ~]# sudo -u hdfs hadoop fs -mkdir /user/cloudera/AW_DP_STG1
+  267  hadoop fs -ls /user/cloudera/AW_DP_STG1
+  268  hdfs dfs -put /user/cloudera/AW_DP_STG1/HR>CSV /user/hive/warehouse/dp_stg1.db/hr
+  269  cd
+  270  hdfs dfs -put /user/cloudera/AW_DP_STG1/HR.CSV /user/hive/warehouse/dp_stg1.db/hr
+  271  hive
+  272   hdfs dfs -put /hdfs/AW_DS_DP_STG1/HR.csv /user/hive/warehouse/DP_STG1.db/HR
+  273   hdfs dfs -put /hdfs/AW_DS_DP_STG1/HR.csv /user/hive/warehouse/dp_stg1.db/hr
+  274   hdfs dfs -put /hdfs/AW_DS_DP_STG1/hr.csv /user/hive/warehouse/dp_stg1.db/hr
+  275   hdfs dfs -put /hdfs/HR.csv /user/hive/warehouse/dp_stg1.db/hr
+  276  cd  /hdfs/AW_DS_DP_STG1
+  277   hdfs dfs -put /hdfs/AW_DS_DP_STG1/hr.csv /user/hive/warehouse/dp_stg1.db/hr
+  278   hdfs dfs -put /hdfs/AW_DS_DP_STG1/hr.csv /user/hive/warehouse/dp_stg1.db/temp
+  279  cat /hdfs/AW_DS_DP_STG1/hr.csv
+  280  cd
+  281  cat /hdfs/Test.csv
+  282  cat /hdfs/HR.csv
+  283  cat /hdfs/HR.CSV
+  284   hdfs dfs -put /hdfs/AW_DS_DP_STG1/HR.CSV /user/hive/warehouse/dp_stg1.db/hr
+  285  hdfs dfs -rm /user/hive/warehouse/dp_stg1.db/hr/*
+  286  hadoop fs -rm /user/hive/warehouse/dp_stg1.db/hr/*
+  287  clear
+  288  history
+  289  history |grep -i dfs
+  290  sudo -u hdfs hadoop fs -rm /user/hive/warehouse/dp_stg1.db/hr/*
+  291  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/HR.CSV /user/hive/warehouse/dp_stg1.db/hr
+  292  sudo -u hdfs hadoop fs -ls/user/hive/warehouse/dp_stg1.db/hr/
+  293  sudo -u hdfs hadoop fs -ls /user/hive/warehouse/dp_stg1.db/hr/
+  294  sudo -u hdfs hadoop fs -rm /user/hive/warehouse/dp_stg1.db/hr/*
+  295  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/HR.CSV /user/hive/warehouse/dp_stg1.db/hr
+  296  sudo -u hdfs fs -ls /user/hive/warehouse/dp_stg1.db/hr/
+  297  sudo -u hdfs hadoop fs -ls /user/hive/warehouse/dp_stg1.db/hr/
+  298  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/HR.CSV /user/hive/warehouse/dp_stg1.db/temp
+  299  hdfs dfs -put /user/cloudera/AW_DP_STG1/HR.CSV /user/hive/warehouse/dp_stg1.db/hr
+  300  history
+  301  hdfs dfs -put /user/cloudera/AW_DP_STG1/HR.CSV /user/hive/warehouse/dp_stg1.db/hr
+  302  hdfs dfs -put /hdfs/AW_DS_DP_STG1/HR.CSV /user/hive/warehouse/dp_stg1.db/hr
+  303  history
+  304  history
+  305  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/Person.csv /user/hive/warehouse/dp_stg1.db/Person
+  306  sudo -u hdfs hadoop fs -rm /hdfs/AW_DS_DP_STG1/Person.csv /user/hive/warehouse/dp_stg1.db/Person
+  307  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/Person.csv /user/hive/warehouse/dp_stg1.db/person
+  308  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/BillOfMaterials_Production.CSV /user/hive/warehouse/dp_stg1.db/billOfMaterials_Production
+  309  sudo -u hdfs hadoop fs -rm /hdfs/AW_DS_DP_STG1/BillOfMaterials_Production.CSV /user/hive/warehouse/dp_stg1.db/billOfMaterials_Production
+  310  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/BillOfMaterials_Production.CSV /user/hive/warehouse/dp_stg1.db/bill_of_materials_production
+  311  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/Production.CSV /user/hive/warehouse/dp_stg1.db/production
+  312  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/ScrapReason_Production.CSV /user/hive/warehouse/dp_stg1.db/scrap_reason_production
+  313  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/UnitMeasure_Production.CSV /user/hive/warehouse/dp_stg1.db/unit_measure_production
+  314  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/WorkOrder_Production.CSV /user/hive/warehouse/dp_stg1.db/work_order_production
+  315  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/WorkOrderRouting_Production.CSV /user/hive/warehouse/dp_stg1.db/work_order_routing_production
+  316  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/Purchase.CSV /user/hive/warehouse/dp_stg1.db/purchase
+  317  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/Sales.CSV /user/hive/warehouse/dp_stg1.db/sales
+  318  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/Sales_2.csv /user/hive/warehouse/dp_stg1.db/sales_2
+  319  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/Sales_3_new.csv /user/hive/warehouse/dp_stg1.db/sales_3_new
+  320  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/18 Store_Sales.CSV /user/hive/warehouse/dp_stg1.db/store_sales
+  321  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/Store_Sales.CSV /user/hive/warehouse/dp_stg1.db/store_sales
+  322  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/ShoppingCartItem_Sales.CSV /user/hive/warehouse/dp_stg1.db/shopping_cart_item_sales
+  323  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/SalesTaxRate_Sales.CSV /user/hive/warehouse/dp_stg1.db/sales_tax_rate_sales
+  324  sudo -u hdfs hadoop fs -put /hdfs/AW_DS_DP_STG1/Customer_Sales.CSV /user/hive/warehouse/dp_stg1.db/customer_sales
+  325  history
+  326  clear
+  327  history
