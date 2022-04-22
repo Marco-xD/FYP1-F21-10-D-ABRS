@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin:0;
+}
+
+
+#baseLogin{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+#baseLogin::before{
+    content: '';
+    background: url("../imgs/hero-bg.jpg") top center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.2;
+    height: 100vh;
+    z-index: -1;
+}
+.loginModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40rem;
+    height: 40rem;
+}
+.loginContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 30rem;
+    height: 30rem;
+    background-color: white;
+    box-shadow: 0px 10px 60px 0px rgb(110 123 131);
+    border-radius: 25px;
+}
+
+.loginHeading{
+    font-family: 'Raleway',sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #124546;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+}
+
+.formInput{
+    display: flex;
+    width: 16rem;
+    height: 3rem;
+    background-color: #124546;
+    margin-bottom: 1rem;
+    border-radius: 25px;
+    background-color: #e6e6e6;;
+    color: #666666;
+}
+
+.formInput input{
+    all:unset;
+    width: 10rem;
+    margin: 0rem 1rem;
+}
+input::placeholder{
+    all:unset;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #999999;
+    margin: 0rem 0rem;
+}
+
+.emailIcon img{
+    max-width: 100%;
+    max-height: 100%;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.emailIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem 0rem 0rem 2rem;
+}
+.passIcon img{
+    max-width: 100%;
+    max-height: 100%;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.passIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem 0rem 0rem 2rem;
+}
+.form button{
+    all:unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16rem;
+    height: 3rem;
+    border-radius: 25px;
+    background-color: #2487ce;
+    color: white;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 2rem;
+}
+.form button:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: 0.5s ease;
+    
+}
+
+p{
+    color: rgb(224, 66, 66);
+    font-family: 'Raleway',sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+}
